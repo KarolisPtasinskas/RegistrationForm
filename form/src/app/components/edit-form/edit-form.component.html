@@ -1,0 +1,37 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Options</th>
+      <th scope="col">Values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let formOption of formOptions">
+      <td scope="row">
+        {{ formOption.name }}
+      </td>
+      <td>
+        <select
+          name="value"
+          #v
+          (change)="onChange(v.value, formOption.id)"
+          [disabled]="selectDisabled == true"
+        >
+          <option
+            *ngFor="let formValue of formOption.values"
+            [value]="formValue.id"
+            [selected]="formOption.selectedValueId === formValue.id"
+          >
+            {{ formValue.name }}
+          </option>
+        </select>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<button class="btn btn-primary" (click)="toggleSelectDisabled()">
+  {{ buttonText }}
+</button>
+<br />
+<a routerLink="/">Go back</a>
