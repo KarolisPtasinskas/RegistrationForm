@@ -1,8 +1,12 @@
-<div style="display: flex">
-  <p>
-    <strong>{{ form.name }}</strong>
-  </p>
-  <a class="btn btn-primary" [routerLink]="['/edit-form', form.id]"
-    >Edit form</a
-  >
+<div class="row justify-content-between p-3 mb-2 bg-light text-dark">
+  <div>
+    <span class="align-middle font-weight-bold">
+      {{ form.name }}
+    </span>
+  </div>
+  <div>
+    <a class="btn font-weight-bold" [routerLink]="['/edit-form', form.id]"
+      >Edit form</a
+    >
+  </div>
 </div>
